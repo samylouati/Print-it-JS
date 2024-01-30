@@ -17,14 +17,14 @@ const slides = [
 	}
 ];
 
+
 // interaction evenements flêches 
 let arrow_left = document.querySelector('.arrow_left');
-arrow_left.addEventListener('click', function (event) {
+arrow_left.addEventListener('click', () => { 
 	console.log('image defile vers la gauche')
 });
 
 let arrow_right = document.querySelector('.arrow_right');
-
-arrow_right.addEventListener('click', () => {
+arrow_right.addEventListener('click', () => { 
 	console.log('image defile vers la droite')
 });
