@@ -112,6 +112,7 @@ header {
 	min-height: 470px;
 	position: relative;
 }
+
 .banner-img {
 	position: absolute;
 	width: 100%;
@@ -123,7 +124,7 @@ header {
 /* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
 /* Gestion des fleches du carrousel */
 #banner .arrow {
-	position: relative;
+	position: absolute;
 }
 #banner .arrow_left {
 	left: 10px;
@@ -131,6 +132,21 @@ header {
 #banner .arrow_right {
 	right: 10px;
 }
+
+/*Mon slide*/
+
+.slide {
+	display: flex;
+	flex-direction: row;
+	overflow: hidden;
+
+	.slide1 {
+		min-width: 100%;
+	}
+
+
+}
+
 /* Gestion des points du carrousel */
 .dots {
 	position: absolute;

@@ -17,15 +17,31 @@ const slides = [
 	}
 ];
 
-// interaction evenements flêches 
+console.log(slides); // pour voir le nombre d'element dans mon tableau "slides"
 
-let arrow_left = document.querySelector('.arrow_left');
-arrow_left.addEventListener('click', () => {
-	console.log('image defile vers la gauche')
+// element du DOM à recupérer 
+
+const arrow_left = document.querySelector('arrow_left'); // fleche de gauche > la class
+const arrow_right = document.querySelector('arrow_right'); // fleche de droite > la class
+const bannerImg = document.querySelector('banner-img'); // l'image active > la class
+const bannerTagLine = document.querySelector('#banner p') // le p, slogan de l'image active > le p dans l'id 
+
+// evenements fleches
+
+arrow_left.addEventListener('click', function(){ //devrait gerer l'evenement click de la fleche de gauche
+    console.log('click a gauche');
 });
 
-let arrow_right = document.querySelector('.arrow_right');
-arrow_right.addEventListener('click', () => { 
-	console.log('image defile vers la droite')
+arrow_right.addEventListener('click', function(){ //devrait gerer l'evenement click de la fleche de droite
+    console.log('click a droite');
 });
 
+let index = 0; // je definis un index
+console.log(index);
+
+function test(index) { // je definis une fonction qui montre l'image active 
+	console.log('index active :' +index);
+	console.log('Image ' +slides[index].image); // je vais chercher l'image dans le tableau slides
+	console.log('TagLine ' + slides[index].tagLine); // je vais chercher le TagLine dans le tableau
+	bannerImg.src = `
+}
