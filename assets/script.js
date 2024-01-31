@@ -1,5 +1,5 @@
 const slides = [
-	{
+	{	
 		"image":"slide1.jpg",
 		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
 	},
@@ -17,10 +17,10 @@ const slides = [
 	}
 ];
 
-
 // interaction evenements flêches 
+
 let arrow_left = document.querySelector('.arrow_left');
-arrow_left.addEventListener('click', () => { 
+arrow_left.addEventListener('click', () => {
 	console.log('image defile vers la gauche')
 });
 
@@ -28,3 +28,4 @@ let arrow_right = document.querySelector('.arrow_right');
 arrow_right.addEventListener('click', () => { 
 	console.log('image defile vers la droite')
 });
+
