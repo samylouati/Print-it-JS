@@ -19,14 +19,17 @@ const slides = [
 
 console.log(slides); // pour voir le nombre d'element dans mon tableau "slides"
 
-// element du DOM à recupérer 
+// element du DOM à recupérer :
 
-let arrow_left = document.querySelector('arrow_left'); // fleche de gauche > la class
-let arrow_right = document.querySelector('arrow_right'); // fleche de droite > la class
-const bannerImg = document.querySelector('banner-img'); // l'image active > la class
-const bannerTagLine = document.querySelector('#banner p'); // le p, slogan de l'image active > le p dans l'id 
+let arrow_left = document.querySelector('.arrow_left'); // fleche de gauche > la class
+console.log(arrow_left);
+let arrow_right = document.querySelector('.arrow_right'); // fleche de droite > la class
+console.log(arrow_right);
+const bannerImg = document.querySelector('.banner-img'); // l'image active > la class
+console.log()
+const bannertagLine = document.querySelector('#banner p'); // le p, slogan de l'image active > le p dans l'id 
 
-// evenements fleches
+// evenements fleches : 
 
 arrow_left.addEventListener('click', function(){ //devrait gerer l'evenement click de la fleche de gauche
     console.log('click à gauche');
@@ -39,21 +42,23 @@ arrow_right.addEventListener('click', function(){ //devrait gerer l'evenement cl
 let index = 0; // je definis un index
 console.log(index);
 
-function test(index) { // je definis une fonction qui montre l'image active 
+function display(index) { // je definis une fonction qui montre l'image active 
 	console.log('index active :' +index);
 	console.log('Image ' +slides[index].image); // je vais chercher l'image dans le tableau slides
-	console.log('TagLine ' + slides[index].TagLine); // je vais chercher le TagLine dans le tableau
-	bannerImg.src = `./assets/images/slideshow/${slides[index].image}`; // sert à indisuer les images dans la source
-	bannerTagLine.innerHTML = slides[index].TagLine; // change le texte selon la Tagline
+	console.log('tagLine ' + slides[index].tagLine); // je vais chercher le TagLine dans le tableau
+	bannerImg.src = `./assets/images/slideshow/${slides[index].image}`; // sert à indiquer le chemins des images 
+	bannertagLine.innerHTML = slides[index].tagLine; // change le texte selon la Tagline
+	
 }
 
 arrow_left.addEventListener('click', function() { // evenement au click de la fleche gauche
     index--; // on incremente de -1 dans le tableau
-	test(index); // on appel test en lui passant le nouvel index (l'ancien -1)
+	display(index); // on appel test en lui passant le nouvel index (l'ancien -1)
 });
 
 arrow_right.addEventListener('click', function(){ 
     index++; // on incrémente index (+1)
-    test(index); // on appel test en lui passant le nouvel index (l'ancien +1)
+    display(index); // on appel test en lui passant le nouvel index (l'ancien +1)
     }
 );
+
