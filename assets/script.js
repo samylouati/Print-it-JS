@@ -52,14 +52,14 @@ function display(Index) {
 function nextSlide () { // nom de la fonction
 	currentSlideIndex++; // j'ajoute +1 à l'image en cours
 	display(currentSlideIndex); // je montre l'image en cours
-	updateDots(Index); // mettre à jours le dot_selected
+	updateDots(currentSlideIndex); // mettre à jours le dot_selected
 }
 
 //fonction : image precedente
 function previousSlide() { // nom de la fonction
 	currentSlideIndex--; // je retire -1 à l'image en cours
 	display(currentSlideIndex); // je montre l'image en cours
-	updateDots(Index); // mettre à jours le dot_selected
+	updateDots(currentSlideIndex); // mettre à jours le dot_selected
 }
 
 
@@ -78,22 +78,25 @@ arrow_right.addEventListener('click', nextSlide); //au click sur la fleche de dr
 // elements à créer / modifier / ajouter dans le DOM 
 
 slides.forEach(element => {
-	dot = document.createElement('div'); //Je créé une div "dot"
+	let dot = document.createElement('div'); //Je créé une div "dot"
 	let dots = document.querySelector('.dots'); // je recupere la balise "dots"
 	dots.appendChild(dot); //J'indique que "dots" est le parent de "dot"
 	dot.classList.add('dot'); // j'applique le style "dot"	
 });
 
-let dot_selected = dot.classList.add('dot_selected');
-let dot_unselected = dot.classList.remove('dot_selected');
+// let dot_selected = dot.classList.add('dot_selected');
+// let dot_unselected = dot.classList.remove('dot_selected');
+let allDots = document.querySelectorAll('.dots .dot');
 
 function updateDots () {
-	if (currentSlideIndex) {
-		dot_selected ;
-	}
-	else {
-		dot_unselected ;
-	}
+	allDots.forEach((dot, Index) => {
+		if (Index === currentSlideIndex) {
+			dot.classList.add('dot_selected');
+		}
+		else {
+			dot.classList.remove('dot_selected');
+		}
+	});
 }
 
 
@@ -111,5 +114,3 @@ function updateDots () {
 // dot2.classList.add('dot'); // j'applique le style "dot"
 // dot3.classList.add('dot'); // j'applique le style "dot"
 // dot4.classList.add('dot'); // j'applique le style "dot"
-
-
