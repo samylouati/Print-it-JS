@@ -91,10 +91,10 @@ let allDots = document.querySelectorAll('.dots .dot');
 function updateDots () {
 	allDots.forEach((dot, Index) => {
 		if (Index === currentSlideIndex) {
-			dot.classList.add('dot_selected');
+			dot_selected = dot.classList.add('dot_selected');
 		}
 		else {
-			dot.classList.remove('dot_selected');
+			dot_unselected = dot.classList.remove('dot_selected');
 		}
 	});
 }
