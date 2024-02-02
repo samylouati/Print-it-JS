@@ -28,6 +28,7 @@ const bannerImg = document.querySelector('.banner-img'); // je recupere l'image 
 const bannerTagLine = document.querySelector('#banner p'); // je recupere le p dans l'id #banner
 
 
+
 // fonctions
 
 let currentSlideIndex = 0; // je definis un Index pour l'image en cours
@@ -44,21 +45,21 @@ function display(Index) {
 	}
 	console.log(Index) // console pour voir la nouvelle Image en cours
 	bannerImg.src = `./assets/images/slideshow/${slides[currentSlideIndex].image}`; // montre le chemin de l'image
-	bannerTagLine.innerHTML = slides[currentSlideIndex].tagLine; // change le texte selon la Tagline
+	bannerTagLine.innerHTML = slides[currentSlideIndex].tagLine; // change le texte selon la Tagline dans le tableau
 }
 
 // fonction : image suivante
 function nextSlide () { // nom de la fonction
 	currentSlideIndex++; // j'ajoute +1 à l'image en cours
 	display(currentSlideIndex); // je montre l'image en cours
-	// mettre à jours le dot_selected
+	dotactive; // mettre à jours le dot_selected
 }
 
 //fonction : image precedente
 function previousSlide() { // nom de la fonction
 	currentSlideIndex--; // je retire -1 à l'image en cours
 	display(currentSlideIndex); // je montre l'image en cours
-	// mettre à jours le dot_selected
+	dotactive; // mettre à jours le dot_selected
 }
 
 
@@ -82,6 +83,19 @@ slides.forEach(element => {
 	dots.appendChild(dot); //J'indique que "dots" est le parent de "dot"
 	dot.classList.add('dot'); // j'applique le style "dot"	
 });
+
+let dot_selected = dot.classList.add('dot_selected');
+let dot_unselected = dot.classList.remove('dot_selected');
+
+function dotactive() {
+	if (currentSlideIndex) {
+		dot_selected ;
+	}
+	else {
+		dot_unselected ;
+	}
+}
+
 
 // let dot1 = document.createElement('div'); //Je créé une div "dot1"
 // let dot2 = document.createElement('div'); //Je créé une div "dot2"
