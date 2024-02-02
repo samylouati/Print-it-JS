@@ -52,14 +52,14 @@ function display(Index) {
 function nextSlide () { // nom de la fonction
 	currentSlideIndex++; // j'ajoute +1 à l'image en cours
 	display(currentSlideIndex); // je montre l'image en cours
-	dotactive; // mettre à jours le dot_selected
+	updateDots(Index); // mettre à jours le dot_selected
 }
 
 //fonction : image precedente
 function previousSlide() { // nom de la fonction
 	currentSlideIndex--; // je retire -1 à l'image en cours
 	display(currentSlideIndex); // je montre l'image en cours
-	dotactive; // mettre à jours le dot_selected
+	updateDots(Index); // mettre à jours le dot_selected
 }
 
 
@@ -87,7 +87,7 @@ slides.forEach(element => {
 let dot_selected = dot.classList.add('dot_selected');
 let dot_unselected = dot.classList.remove('dot_selected');
 
-function dotactive() {
+function updateDots () {
 	if (currentSlideIndex) {
 		dot_selected ;
 	}
