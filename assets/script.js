@@ -99,6 +99,7 @@ function updateDots () {
 	});
 }
 
+updateDots();
 
 // let dot1 = document.createElement('div'); //Je créé une div "dot1"
 // let dot2 = document.createElement('div'); //Je créé une div "dot2"
