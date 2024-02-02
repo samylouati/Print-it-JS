@@ -28,9 +28,6 @@ const bannerImg = document.querySelector('.banner-img'); // je recupere l'image 
 const bannerTagLine = document.querySelector('#banner p'); // je recupere le p dans l'id #banner
 
 
-
-
-
 // fonctions
 
 let currentSlideIndex = 0; // je definis un Index pour l'image en cours
@@ -78,17 +75,20 @@ arrow_right.addEventListener('click', nextSlide); //au click sur la fleche de dr
 
 // elements à créer / modifier / ajouter dans le DOM 
 
-let dot1 = document.createElement('div'); //Je créé une div "dot"
-let dot2 = document.createElement('div'); //Je créé une div "dot"
-let dot3 = document.createElement('div'); //Je créé une div "dot"
-let dot4 = document.createElement('div'); //Je créé une div "dot"
+let dot1 = document.createElement('div'); //Je créé une div "dot1"
+let dot2 = document.createElement('div'); //Je créé une div "dot2"
+let dot3 = document.createElement('div'); //Je créé une div "dot3"
+let dot4 = document.createElement('div'); //Je créé une div "dot4"
 let dots = document.querySelector('.dots'); // je recupere la balise "dots"
 dots.appendChild(dot1); //J'indique que "dots" est le parent de "dot"
 dots.appendChild(dot2); //J'indique que "dots" est le parent de "dot"
 dots.appendChild(dot3); //J'indique que "dots" est le parent de "dot"
 dots.appendChild(dot4); //J'indique que "dots" est le parent de "dot"
 dot1.classList.add('dot'); // j'applique le style "dot"
-dot1.classList.add('dot_selected'); // j'applique le style "dot_selected"
 dot2.classList.add('dot'); // j'applique le style "dot"
 dot3.classList.add('dot'); // j'applique le style "dot"
 dot4.classList.add('dot'); // j'applique le style "dot"
+
+function currentdot() { // nom de la fonction
+	slides.forEach(dot.classList.add('dot_selected'));
+}
