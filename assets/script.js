@@ -58,6 +58,7 @@ function nextSlide () { // nom de la fonction
 function previousSlide() { // nom de la fonction
 	currentSlideIndex--; // je retire -1 à l'image en cours
 	display(currentSlideIndex); // je montre l'image en cours
+	// mettre à jours le dot_selected
 }
 
 
@@ -75,20 +76,26 @@ arrow_right.addEventListener('click', nextSlide); //au click sur la fleche de dr
 
 // elements à créer / modifier / ajouter dans le DOM 
 
-let dot1 = document.createElement('div'); //Je créé une div "dot1"
-let dot2 = document.createElement('div'); //Je créé une div "dot2"
-let dot3 = document.createElement('div'); //Je créé une div "dot3"
-let dot4 = document.createElement('div'); //Je créé une div "dot4"
-let dots = document.querySelector('.dots'); // je recupere la balise "dots"
-dots.appendChild(dot1); //J'indique que "dots" est le parent de "dot"
-dots.appendChild(dot2); //J'indique que "dots" est le parent de "dot"
-dots.appendChild(dot3); //J'indique que "dots" est le parent de "dot"
-dots.appendChild(dot4); //J'indique que "dots" est le parent de "dot"
-dot1.classList.add('dot'); // j'applique le style "dot"
-dot2.classList.add('dot'); // j'applique le style "dot"
-dot3.classList.add('dot'); // j'applique le style "dot"
-dot4.classList.add('dot'); // j'applique le style "dot"
+slides.forEach(element => {
+	dot = document.createElement('div'); //Je créé une div "dot"
+	let dots = document.querySelector('.dots'); // je recupere la balise "dots"
+	dots.appendChild(dot); //J'indique que "dots" est le parent de "dot"
+	dot.classList.add('dot'); // j'applique le style "dot"	
+});
 
-function currentdot() { // nom de la fonction
-	slides.forEach(dot.classList.add('dot_selected'));
-}
+// let dot1 = document.createElement('div'); //Je créé une div "dot1"
+// let dot2 = document.createElement('div'); //Je créé une div "dot2"
+// let dot3 = document.createElement('div'); //Je créé une div "dot3"
+// let dot4 = document.createElement('div'); //Je créé une div "dot4"
+// let dots = document.querySelector('.dots'); // je recupere la balise "dots"
+// dots.appendChild(dot1); //J'indique que "dots" est le parent de "dot"
+// dots.appendChild(dot2); //J'indique que "dots" est le parent de "dot"
+// dots.appendChild(dot3); //J'indique que "dots" est le parent de "dot"
+// dots.appendChild(dot4); //J'indique que "dots" est le parent de "dot"
+// dot1.classList.add('dot'); // j'applique le style "dot"
+// dot1.classList.add('dot_selected'); // j'applique le style "dot"
+// dot2.classList.add('dot'); // j'applique le style "dot"
+// dot3.classList.add('dot'); // j'applique le style "dot"
+// dot4.classList.add('dot'); // j'applique le style "dot"
+
+
