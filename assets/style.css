@@ -127,10 +127,12 @@ header {
 	position: absolute;
 }
 #banner .arrow_left {
-	left: 10px;
+	position: absolute;
+	left: 20px;
 }
 #banner .arrow_right {
-	right: 10px;
+	position: absolute;
+	right: 20px;
 }
 
 /*Mon slide*/

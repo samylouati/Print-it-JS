@@ -17,48 +17,55 @@ const slides = [
 	}
 ];
 
-console.log(slides); // pour voir le nombre d'element dans mon tableau "slides"
+console.log(slides.length) // pour voir le nombre d'elements dans le tableau "slides" + lenght
 
-// element du DOM à recupérer :
+// elements du DOM à recupérer 
 
-let arrow_left = document.querySelector('.arrow_left'); // fleche de gauche > la class
-console.log(arrow_left);
-let arrow_right = document.querySelector('.arrow_right'); // fleche de droite > la class
-console.log(arrow_right);
-const bannerImg = document.querySelector('.banner-img'); // l'image active > la class
-console.log()
-const bannertagLine = document.querySelector('#banner p'); // le p, slogan de l'image active > le p dans l'id 
+let arrow_left = document.querySelector('.arrow_left'); // je recupere la fleche de gauche > sa class
+let arrow_right = document.querySelector('.arrow_right'); // je recupere la fleche de droite > sa class
+const bannerImg = document.querySelector('.banner-img'); // je recupere l'image active > sa class
+const bannerTagLine = document.querySelector('#banner p'); // je recupere le p dans l'id #banner
 
-// evenements fleches : 
+// fonctions
 
-arrow_left.addEventListener('click', function(){ //devrait gerer l'evenement click de la fleche de gauche
-    console.log('click à gauche');
-});
+let currentSlideIndex = 0; // je definis un Index pour l'image en cours
+console.log(currentSlideIndex); // console pour voir l'image en cours
 
-arrow_right.addEventListener('click', function(){ //devrait gerer l'evenement click de la fleche de droite
-    console.log('click a droite');
-});
-
-let index = 0; // je definis un index
-console.log(index);
-
-function display(index) { // je definis une fonction qui montre l'image active 
-	console.log('index active :' +index);
-	console.log('Image ' +slides[index].image); // je vais chercher l'image dans le tableau slides
-	console.log('tagLine ' + slides[index].tagLine); // je vais chercher le TagLine dans le tableau
-	bannerImg.src = `./assets/images/slideshow/${slides[index].image}`; // sert à indiquer le chemins des images 
-	bannertagLine.innerHTML = slides[index].tagLine; // change le texte selon la Tagline
-	
+// fonction : si l'image et 0 (la premiere) alors je vais sur la derniere
+//				si l'image est la derniere, alors je vais sur la premiere
+function display(Index) {
+	if (Index < 0) {
+		currentSlideIndex = slides.lenght -1;
+	}
+	else if (Index > slides.length -1) {
+		currentSlideIndex = 0
+	}
+	console.log(Index) // console pour voir la nouvelle Image en cours
+	bannerImg.src = `./assets/images/slideshow/${slides[currentSlideIndex].image}`; // montre le chemin de l'image
+	bannerTagLine.innerHTML = slides[currentSlideIndex].tagLine; // change le texte selon la Tagline
 }
 
-arrow_left.addEventListener('click', function() { // evenement au click de la fleche gauche
-    index--; // on incremente de -1 dans le tableau
-	display(index); // on appel test en lui passant le nouvel index (l'ancien -1)
-});
+// fonction : image suivante
+function nextSlide () { // nom de la fonction
+	currentSlideIndex++; // j'ajoute +1 à l'image en cours
+	display(currentSlideIndex); // je montre l'image en cours
+	// mettre à jours le dot_selected
+}
 
-arrow_right.addEventListener('click', function(){ 
-    index++; // on incrémente index (+1)
-    display(index); // on appel test en lui passant le nouvel index (l'ancien +1)
-    }
-);
+//fonction : image precedente
+function previousSlide() { // nom de la fonction
+	currentSlideIndex--; // je retire -1 à l'image en cours
+	display(currentSlideIndex) // je montre l'image en cours
+}
 
+// evenement pour les fleches 
+
+arrow_left.addEventListener('click', previousSlide); //au click sur la fleche de gauche, je veux aller sur l'image -1 
+arrow_right.addEventListener('click', nextSlide); //au click sur la fleche de droite, je veux aller sur l'image +1
+
+//Pour chaque (forEach) elements du tableau slides
+//Je créé un element (createElement) HTML que je glisse en enfant dans la div "dots"
+
+//function updateDots (parametre index) pour gerer le deplacement de la class dot_selected sur mes dot
+// On retire à toutes les dots la class dot_selected
+// Je prend le dot de l'index en cours et je lui met en class dot_selected
