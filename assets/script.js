@@ -23,7 +23,13 @@ console.log(slides.length) // pour voir le nombre d'elements dans le tableau "sl
 // elements du DOM à recupérer 
 
 let arrow_left = document.querySelector('.arrow_left'); // je recupere la fleche de gauche > sa class
+arrow_left.addEventListener ('click', function () {
+	console.log('clic sur la fleche de gauche')
+})
 let arrow_right = document.querySelector('.arrow_right'); // je recupere la fleche de droite > sa class
+arrow_right.addEventListener ('click', function () {
+	console.log('clic sur la fleche de droite')
+})
 const bannerImg = document.querySelector('.banner-img'); // je recupere l'image active > sa class
 const bannerTagLine = document.querySelector('#banner p'); // je recupere le p dans l'id #banner
 
